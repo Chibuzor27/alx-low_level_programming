@@ -1,7 +1,5 @@
 #include <stdio.h>
-
-/* function declarations */
-int _putchar(char c);
+#include "main.h"
 
 /**
  * main - entry point
