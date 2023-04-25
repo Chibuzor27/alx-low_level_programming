@@ -2,7 +2,7 @@
 
 /**
  * _islower - indicates lower case characters
- * c: parameters
+ * @c: parameters
  *
  * Return: 1 if true, 0 otherwise
  */
