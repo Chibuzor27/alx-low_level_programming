@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _isllpha - indicates lower case characters
+ * _isalpha - indicates lower case characters
  * @c: parameters
  *
  * Return: 1 if true, 0 otherwise
