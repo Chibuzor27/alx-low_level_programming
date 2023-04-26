@@ -1,5 +1,7 @@
 #include "main.h"
 
+void print_termination(int);
+
 /**
  * times_table - function name
  *
@@ -15,18 +17,14 @@ void times_table(void)
 
 	for (row = 0; row < 10; row++)
 	{
-		for (col = 0; col < 10; col ++)
+		for (col = 0; col < 10; col++)
 		{
 			mul = row * col;
 			if (mul <= 0)
 			{
 				_putchar('0' + mul);
-				if (col < 9 )
-				{
-					_putchar(',');
-					_putchar(' ');
-				}
-				
+				print_termination(col);
+
 				if ((((col + 1) * row) < 10) && (col < 9))
 				{
 					_putchar(' ');
@@ -39,12 +37,8 @@ void times_table(void)
 				if (mul < 10)
 				{
 					_putchar('0' + d2);
-					if (col < 9)
-					{
-						_putchar(',');
-						_putchar(' ');
-					}
-					
+					print_termination(col);
+
 					if ((((col + 1) * row) < 10) && (col < 9))
 					{
 						_putchar(' ');
@@ -54,14 +48,23 @@ void times_table(void)
 				{
 					_putchar('0' + d1);
 					_putchar('0' + d2);
-					if (col < 9)
-					{
-						_putchar(',');
-						_putchar(' ');
-					}
+					print_termination(col);
 				}
 			}
 		}
 		_putchar('\n');
+	}
+}
+
+/**
+ * print_termination - prints ,
+ * @col: column number
+ */
+void print_termination(int col)
+{
+	if (col < 9)
+	{
+		_putchar(',');
+		_putchar(' ');
 	}
 }
