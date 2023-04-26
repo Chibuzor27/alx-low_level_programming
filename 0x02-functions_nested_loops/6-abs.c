@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * abs - function name
+ * _abs - function name
  * @n: parameters
  *
  * Return: 0
