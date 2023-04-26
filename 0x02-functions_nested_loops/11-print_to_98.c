@@ -3,42 +3,47 @@
 /**
  * print_to_98 - function name
  * @n: parameters
- *
- * Return: 0
  */
-int print_to_98(int n)
+void print_to_98(int n)
 {
+	int num, d, i, j;
+	char text[256];
+
 	while (n <= 98)
 	{
-		if (n < 98)
+		if (n <= 98)
 		{
 			num = n;
+			i = 0;
 			if (n < 0)
 			{
 				_putchar('-');
 				num = num * -1;
 			}
-
-			text = "";
-			i = 0;
-
-			while (num != 0)
+			if (n == 0)
 			{
-				d = num % 10;
-				num = (num - d) / 10;
-				text[++i] = '0' + d;
+				_putchar('0');
 			}
-
-			for (j = 0; j <= i; i++)
+			else
 			{
-				_putchar(text[j]);
+				while (num != 0)
+				{
+					d = num % 10;
+					num = (num - d) / 10;
+					text[i++] = '0' + d;
+				}
+				for (j = i; j >= 0; j--)
+				{
+					_putchar(text[j]);
+				}
 			}
-
-			_putchar(',');
-			_putchar(' ');
+			if (n != 98)
+			{
+				_putchar(',');
+				_putchar(' ');
+			}
 		}
 		n++;
 	}
-	return (0);
+	_putchar('\n');
 }
-
