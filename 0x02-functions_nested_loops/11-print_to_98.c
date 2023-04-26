@@ -1,20 +1,20 @@
 #include "main.h"
 
+void print_reverse(int);
+
 /**
  * print_to_98 - function name
  * @n: parameters
  */
 void print_to_98(int n)
 {
-	int num, d, i, j;
-	char text[256];
+	int num;
 
-	while (n <= 98)
+	if (n <= 98)
 	{
-		if (n <= 98)
+		while (n <= 98)
 		{
 			num = n;
-			i = 0;
 			if (n < 0)
 			{
 				_putchar('-');
@@ -26,24 +26,52 @@ void print_to_98(int n)
 			}
 			else
 			{
-				while (num != 0)
-				{
-					d = num % 10;
-					num = (num - d) / 10;
-					text[i++] = '0' + d;
-				}
-				for (j = i; j >= 0; j--)
-				{
-					_putchar(text[j]);
-				}
+				print_reverse(num);
 			}
 			if (n != 98)
 			{
 				_putchar(',');
 				_putchar(' ');
 			}
+			n++;
 		}
-		n++;
+	}
+	else
+	{
+		while (n >= 98)
+		{
+			print_reverse(n);
+			if (n != 98)
+			{
+				_putchar(',');
+				_putchar(' ');
+			}
+			n--;
+		}
 	}
 	_putchar('\n');
+}
+
+/**
+ * print_reverse - print
+ *
+ * @num:  number
+ */
+void print_reverse(int num)
+{
+	int j, d;
+	int i = 0;
+	char text[256];
+
+	while (num != 0)
+	{
+		d = num % 10;
+		num = (num - d) / 10;
+		text[i++] = '0' + d;
+	}
+
+	for (j = i - 1; j >= 0; j--)
+	{
+		_putchar(text[j]);
+	}
 }
