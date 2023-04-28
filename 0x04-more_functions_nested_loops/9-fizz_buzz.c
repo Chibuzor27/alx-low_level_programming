@@ -33,13 +33,13 @@ int main(void)
 			d = (i - (i % 10)) / 10;
 			if (d > 0)
 			{
-				_putchar('0' + d);
+				printf("%d", d);
 			}
-			_putchar('0' + i % 10);
+			printf("%d", i % 10);
 		}
-		_putchar(' ');
+		printf("%c", ' ');
 	}
-	_putchar('\n');
+	printf("\n");
 
 	return (0);
 }
@@ -65,5 +65,5 @@ void print_fizz(void)
  */
 void print_buzz(void)
 {
-	printf("Buzz);
+	printf("Buzz");
 }
