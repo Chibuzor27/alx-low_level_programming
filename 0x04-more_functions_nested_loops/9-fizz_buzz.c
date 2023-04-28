@@ -49,14 +49,7 @@ int main(void)
  */
 void print_fizz_buzz(void)
 {
-	_putchar('F');
-	_putchar('i');
-	_putchar('z');
-	_putchar('z');
-	_putchar('B');
-	_putchar('u');
-	_putchar('z');
-	_putchar('z');
+	printf("FizzBuzz");
 }
 
 /**
@@ -64,10 +57,7 @@ void print_fizz_buzz(void)
  */
 void print_fizz(void)
 {
-	_putchar('F');
-	_putchar('i');
-	_putchar('z');
-	_putchar('z');
+	printf("Fizz");
 }
 
 /**
@@ -75,8 +65,5 @@ void print_fizz(void)
  */
 void print_buzz(void)
 {
-	_putchar('B');
-	_putchar('u');
-	_putchar('z');
-	_putchar('z');
+	printf("Buzz);
 }
