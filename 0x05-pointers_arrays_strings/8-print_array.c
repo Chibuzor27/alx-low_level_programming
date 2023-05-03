@@ -14,12 +14,12 @@ void print_array(int *a, int n)
 
 	for (i = 0; i < n; i++)
 	{
-		d = a[i];
-		while (d >= 0)
+		printf("%d", a[i]);
+
+		if (i < n - 1)
 		{
-			t = d % 10;
-			d = (d - t) / 10;
+			printf(", ");
 		}
 	}
-	_putchar('\n');
+	putchar('\n');
 }
