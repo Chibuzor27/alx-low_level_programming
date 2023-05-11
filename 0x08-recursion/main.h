@@ -10,4 +10,6 @@ int wildcmp(char *s1, char *s2);
 int _putchar(char c);
 int sqt(int i, int n);
 int is_prime(int i, int n);
+int palindrome(char *s, int depth, int i);
+int depth(char *s);
 
