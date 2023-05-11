@@ -28,12 +28,12 @@ int is_prime(int i, int n)
 
 	if (i > (n / 2))
 	{
-		return 1;
+		return (1);
 	}
 
 	if (n % i == 0 && i != 1 && i != n)
 	{
-		return 0;
+		return (0);
 	}
 
 	i++;
