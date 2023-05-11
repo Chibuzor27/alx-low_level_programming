@@ -10,6 +10,7 @@
 int is_palindrome(char *s)
 {
 	int d;
+
 	if (*(s + 0) == '\0')
 	{
 		return (1);
@@ -52,6 +53,8 @@ int palindrome(char *s, int depth, int i)
 /**
  * depth - function
  * @s: arg
+ *
+ * Return: 0
  */
 int depth(char *s)
 {
