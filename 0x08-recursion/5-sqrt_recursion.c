@@ -47,5 +47,5 @@ int sqt(int i, int n)
 	}
 
 	i++;
-	return sqt(i, n);
+	return (sqt(i, n));
 }
