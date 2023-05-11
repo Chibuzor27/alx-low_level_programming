@@ -9,10 +9,6 @@
  */
 int _sqrt_recursion(int n)
 {
-	int b = 1;
-	int t = n;
-	int m, sq;
-
 	if (n < 0)
 	{
 		return (-1);
@@ -23,24 +19,33 @@ int _sqrt_recursion(int n)
 		return (n);
 	}
 
-	while (b <= t)
-	{
-		m = (b + t) / 2;
-		sq = m * m;
+	return (sqt(2, n));
+}
 
-		if (sq == n)
-		{
-			return (m);
-		}
-		else if (sq > n)
-		{
-			t = m - 1;
-		}
-		else
-		{
-			b = m + 1;
-		}
+/**
+ * sqt - function
+ * @i: arg1
+ * @n: arg2
+ *
+ * Return: 0
+ */
+int sqt(int i, int n)
+{
+	if (i == 1 || i == 0)
+	{
+		return (i);
 	}
 
-	return (-1);
+	if (i * i > n)
+	{
+		return (-1);
+	}
+
+	if (i * i == n)
+	{
+		return (i);
+	}
+
+	i++;
+	return sqt(i, n);
 }
