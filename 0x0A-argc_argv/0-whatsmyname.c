@@ -2,8 +2,8 @@
 
 /**
  * main - entry point
- * @argv: arg
  * @argc: arg
+ * @argv: arg
  *
  * Return: 0
  */
