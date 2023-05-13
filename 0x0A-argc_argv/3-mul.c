@@ -40,12 +40,21 @@ int get_number(char *a)
 {
 	int i = 0;
 	int n = 0;
+	int sign = 1;
 
 	while (*(a + i) != '\0')
 	{
+		if (i == 0 && a[i] == '-')
+		{
+			sign = -1;
+			i++;
+			continue;
+		}
+
+
 		n = (n * 10) + (a[i] - 48);
 		i++;
 	}
 
-	return (n);
+	return (n * sign);
 }
