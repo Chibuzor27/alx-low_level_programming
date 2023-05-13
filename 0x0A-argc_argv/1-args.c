@@ -23,5 +23,5 @@ int main(int argc, char *argv[])
 	}
 	printf("%d\n", count);
 
-	return (argc);
+	return (0);
 }
