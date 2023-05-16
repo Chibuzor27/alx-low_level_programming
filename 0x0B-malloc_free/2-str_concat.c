@@ -19,19 +19,13 @@ char *str_concat(char *s1, char *s2)
 
 	size_1 = get_size(s1);
 	size_2 = get_size(s2);
-
 	n = malloc(((size_1 + size_2) * sizeof(char)) + 1);
 	if (n == NULL)
 	{
 		return (NULL);
 	}
 
-	if (s1 == NULL)
-	{
-		n[i] = '\0';
-		i++;
-	}
-	else
+	if (s1 != NULL)
 	{
 		for (i = 0; i < size_1; i++)
 		{
