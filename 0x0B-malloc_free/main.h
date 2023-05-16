@@ -9,4 +9,5 @@ char *argstostr(int ac, char **av);
 void print_tab(char **tab);
 void print_grid(int **grid, int width, int height);
 void print_grid(int **grid, int width, int height);
+int get_size(char *s);
 
