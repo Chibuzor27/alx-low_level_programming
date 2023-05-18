@@ -32,7 +32,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		return (NULL);
 	}
 	i = 0;
-	if (s != NULL)
+	if (s1 != NULL)
 	{
 		while (*(s1 + i) != '\0')
 		{
