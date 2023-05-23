@@ -1,7 +1,12 @@
-#ifndef dog
+#ifndef "dog.h"
+#define "dog.h"
 
 /**
- * dog - struct
+ * struct dog - a struct
+ *
+ * @name: name
+ * @age: age
+ * @owner: owner
  */
 struct dog
 {
