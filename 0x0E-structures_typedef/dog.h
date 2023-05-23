@@ -1,5 +1,7 @@
 #ifndef dog
-/** dog - struct
+
+/**
+ * dog - struct
  */
 struct dog
 {
