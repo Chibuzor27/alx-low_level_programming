@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stddef.h>
 
 /**
  * op_add - function
@@ -46,7 +48,7 @@ int op_div(int a, int b)
 {
 	if (b == 0)
 	{
-		return (NULL);
+		return (0);
 	}
 
 	return (a / b);
@@ -63,7 +65,7 @@ int op_mod(int a, int b)
 {
 	if (b == 0)
 	{
-		return (NULL);
+		return (0);
 	}
 
 	return (a % b);
