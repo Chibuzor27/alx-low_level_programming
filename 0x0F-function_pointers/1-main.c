@@ -34,5 +34,8 @@ int main(void)
 
     array_iterator(array, 5, &print_elem);
     array_iterator(array, 5, &print_elem_hex);
+    array_iterator(NULL, 5, &print_elem);
+    array_iterator(array, 0, &print_elem);
+    array_iterator(array, 5, NULL);
     return (0);
 }
