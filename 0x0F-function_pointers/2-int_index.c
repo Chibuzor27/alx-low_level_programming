@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stddef.h>
 
 /**
  * int_index - function
@@ -13,7 +14,7 @@ int int_index(int *array, int size, int (*cmp)(int))
 	int ans;
 	int i = 0;
 
-	if (size <= 0)
+	if (size <= 0 || array == NULL || cmp == NULL)
 	{
 		return (-1);
 	}
