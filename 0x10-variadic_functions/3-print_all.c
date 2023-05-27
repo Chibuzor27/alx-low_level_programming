@@ -88,9 +88,8 @@ void print_this_string(va_list vl)
 	if (content == NULL)
 	{
 		printf("%p", content);
+		return;
 	}
-	else
-	{
-		printf("%s", content);
-	}
+	
+	printf("%s", content);
 }
