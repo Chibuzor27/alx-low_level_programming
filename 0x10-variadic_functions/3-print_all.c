@@ -7,7 +7,7 @@ void print_float(va_list vl);
 void print_this_string(va_list vl);
 
 /**
- * printf_all - print
+ * print_all - print
  * @format: arg
  */
 void print_all(const char * const format, ...)
@@ -16,7 +16,7 @@ void print_all(const char * const format, ...)
 	int i = 0;
 
 	va_start(vl, format);
-	while (*(format + i) != '\0')
+	while (format != NULL && *(format + i) != '\0')
 	{
 		switch (*(format + i))
 		{
