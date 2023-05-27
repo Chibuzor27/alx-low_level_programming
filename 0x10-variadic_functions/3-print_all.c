@@ -1,48 +1,47 @@
 #include <stdio.h>
 #include <stdarg.h>
-#include <stddef.h>
-#include "variadic_functions.h"
+
+void print_char(va_list vl);
+void print_int(va_list vl);
+void print_float(va_list vl);
+void print_this_string(va_list vl);
+
+typedef struct p
+{
+	char s;
+	void (*f)(va_list arg);
+} p;
 
 /**
- * print_all - function
+ * printf_all - print
  * @format: arg
- *
  */
 void print_all(const char * const format, ...)
 {
 	va_list vl;
 	int i = 0;
+	int j;
+
+	p func[] = {
+		{'c', print_char},
+		{'i', print_int},
+		{'f', print_float},
+		{'s', print_this_string}
+	};
 
 	va_start(vl, format);
 	while (*(format + i) != '\0')
 	{
-		if (*(format + i)  == 'c')
+		for (j = 0; j < 4; j++)
 		{
-			printf("%c",  va_arg(vl, int));
-		}
-		else if (*(format + i) == 'i')
-		{
-			printf("%d", va_arg(vl, int));
-		}
-		else if (*(format + i) ==  'f')
-		{
-			printf("%f", va_arg(vl, double));
-		}
-		else if (*(format + i) == 's')
-		{
-			char *content = va_arg(vl, char*);
-
-			print_this_string(content);
-		}
-		else
-		{
-			i++;
-			continue;
-		}
-
-		if (*(format + i + 1) != '\0')
-		{
-			printf(", ");
+			if (func[j].s == *(format + i))
+			{
+				func[j].f(vl);
+				if (*(format + i + 1) != '\0')
+				{
+					printf(", ");
+				}
+			}
 		}
 		i++;
 	}
@@ -51,12 +50,39 @@ void print_all(const char * const format, ...)
 }
 
 /**
- * print_this_string - function
- * @content: arg
- *
+ * print_char - function
+ * @vl: arg
  */
-void print_this_string(char *content)
+void print_char(va_list vl)
 {
+	printf("%c", va_arg(vl, int));
+}
+
+/**
+ * print_int - function
+ * @vl: arg
+ */
+void print_int(va_list vl)
+{
+	printf("%d", va_arg(vl, int));
+}
+
+/**
+ * print_float - function
+ * @vl: arg
+ */
+void print_float(va_list vl)
+{
+	printf("%f", va_arg(vl, double));
+}
+
+/**
+ * print_this_string - function
+ * @vl: arg
+ */
+void print_this_string(va_list vl)
+{
+	char *content = va_arg(vl, char*);
 	if (content == NULL)
 	{
 		printf("%p", content);
