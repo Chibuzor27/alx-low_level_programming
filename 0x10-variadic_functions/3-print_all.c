@@ -38,10 +38,7 @@ void print_all(const char * const format, ...)
 			if (func[j].s == *(format + i))
 			{
 				func[j].f(vl);
-				if (*(format + i + 1) != '\0')
-				{
-					printf(", ");
-				}
+				printf(", ");
 			}
 			j++;
 		}
