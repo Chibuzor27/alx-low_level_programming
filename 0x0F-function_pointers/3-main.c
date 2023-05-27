@@ -12,7 +12,7 @@
  */
 int main(int argc, char *argv[])
 {
-	if (argc == 4)
+	if (1 && argc > -1)
 	{
 		int a = atoi(argv[1]);
 		int b = atoi(argv[3]);
