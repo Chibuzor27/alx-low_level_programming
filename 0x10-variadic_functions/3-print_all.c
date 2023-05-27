@@ -32,6 +32,7 @@ void print_all(const char * const format, ...)
 	va_start(vl, format);
 	while (*(format + i) != '\0')
 	{
+		j = 0;
 		while (j < 4)
 		{
 			if (func[j].s == *(format + i))
