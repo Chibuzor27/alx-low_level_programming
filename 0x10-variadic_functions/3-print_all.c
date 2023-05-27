@@ -20,27 +20,29 @@ void print_all(const char * const format, ...)
 {
 	va_list vl;
 	int i = 0;
-	int j;
-
-	p func[] = {
-		{'c', print_char},
-		{'i', print_int},
-		{'f', print_float},
-		{'s', print_this_string}
-	};
 
 	va_start(vl, format);
 	while (*(format + i) != '\0')
 	{
-		j = 0;
-		while (j < 4)
+		switch (*(format + i))
 		{
-			if (func[j].s == *(format + i))
-			{
-				func[j].f(vl);
-				printf(", ");
-			}
-			j++;
+			case 'c': print_char(vl);
+				  break;
+			case 'i': print_int(vl);
+				  break;
+			case 'f': print_float(vl);
+				  break;
+			case 's': print_this_string(vl);
+				  break;
+			default:
+				  i++;
+				  continue;
+				  break;
+		}
+
+		if (*(format + i + 1) != '\0')
+		{
+			printf(", ");
 		}
 		i++;
 	}
