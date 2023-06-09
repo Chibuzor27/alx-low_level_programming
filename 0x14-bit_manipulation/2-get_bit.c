@@ -10,7 +10,7 @@
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	if (index >= UINT_MAX)
+	if (n >= ULONG_MAX || index >= UINT_MAX)
 	{
 		return (-1);
 	}
