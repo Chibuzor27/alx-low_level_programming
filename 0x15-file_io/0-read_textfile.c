@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <fcntl.h>
+#include <unistd.h>
 
 /**
  * read_textfile - function
@@ -11,11 +11,11 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	FILE *fp;
-	char *s;
+	FILE *fp = NULL;
+	char *s = NULL;
 	size_t sum = 0;
 	int i = 0;
-	char *c;
+	char *c = NULL;
 
 	if (letters <= 0 || filename == NULL)
 	{
@@ -41,15 +41,14 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		{
 			if (sum < letters)
 			{
-				printf("%c", *(s + i));
+				if (!write(0, (s + i), 1))
+					return (0);
 				sum += 1;
 			}
 			i++;
 		}
 	}
-
 	fclose(fp);
-	free (c);
-
+	free(c);
 	return (sum);
 }
