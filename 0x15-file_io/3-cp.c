@@ -48,7 +48,7 @@ int main(int ac, char **av)
 				break;
 			}
 			write(file_to, &buf[i], sizeof(char));
-		}	
+		}
 	}
 
 	close_fd(file_from);
