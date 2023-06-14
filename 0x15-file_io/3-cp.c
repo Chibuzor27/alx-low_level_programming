@@ -15,6 +15,7 @@ void close_fd(int fd);
  */
 int main(int ac, char **av)
 {
+	unsigned long i;
 	int file_from, file_to, size;
 	char buf[1024];
 
@@ -40,10 +41,14 @@ int main(int ac, char **av)
 
 	while ((size = read(file_from, buf, sizeof(buf))) > 0)
 	{
-		if (write(file_to, buf, sizeof(buf)) != 1)
+		for (i = 0; i < sizeof(buf); i++)
 		{
-			fail_99(av[2]);
-		}
+			if (buf[i] == '\0')
+			{
+				break;
+			}
+			write(file_to, &buf[i], sizeof(char));
+		}	
 	}
 
 	close_fd(file_from);
