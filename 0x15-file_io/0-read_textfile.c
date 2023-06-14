@@ -41,7 +41,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		{
 			if (sum < letters)
 			{
-				write(0, (s + i), 1);
+				printf("%c", *(s + i));
 				sum += 1;
 			}
 			i++;
