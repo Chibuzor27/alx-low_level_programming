@@ -28,7 +28,7 @@ int main(int ac, char **av)
 	file_from = open(av[1], O_RDONLY);
 	if (file_from == -1)
 	{
-		dprintf(1, "Can\'t read from file %s\n", av[1]);
+		dprintf(2, "Can\'t read from file %s\n", av[1]);
 		exit(98);
 	}
 
@@ -47,7 +47,11 @@ int main(int ac, char **av)
 			{
 				break;
 			}
-			write(file_to, &buf[i], sizeof(char));
+			if (write(file_to, &buf[i], sizeof(char)) < 0)
+			{
+				dprintf(2, "Can\'t read from file %s\n", av[1]);
+			       	exit(98);
+			}
 		}
 	}
 
@@ -65,7 +69,7 @@ int main(int ac, char **av)
  */
 void fail_99(char *s)
 {
-	dprintf(1, "Can\'t write to file %s\n", s);
+	dprintf(2, "Can\'t write to file %s\n", s);
 	exit(99);
 }
 
@@ -79,7 +83,7 @@ void close_fd(int fd)
 {
 	if (close(fd) < 0)
 	{
-		dprintf(1, "Can\'t close fd %d\n", fd);
+		dprintf(2, "Can\'t close fd %d\n", fd);
 		exit(100);
 	}
 }
