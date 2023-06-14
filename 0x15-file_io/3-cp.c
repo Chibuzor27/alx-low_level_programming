@@ -35,7 +35,7 @@ int main(int ac, char **av)
 	file_to = open(av[2], O_TRUNC | O_RDWR);
 	if (file_to == -1)
 	{
-		file_to = open(av[2], O_CREAT, 00664);
+		file_to = open(av[2], O_CREAT, S_IWUSR);
 		fail_99(av[2]);
 	}
 
