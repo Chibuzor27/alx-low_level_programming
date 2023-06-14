@@ -17,7 +17,6 @@ int main(int ac, char **av)
 {
 	int file_from, file_to, size;
 	char buf[1024];
-	char *s = NULL;
 
 	if (ac != 3)
 	{
@@ -39,9 +38,9 @@ int main(int ac, char **av)
 		fail_99(av[2]);
 	}
 
-	while ((size = read(file_from, s, sizeof(buf))) > 0)
+	while ((size = read(file_from, buf, sizeof(buf))) > 0)
 	{
-		if (write(file_to, s, sizeof(buf)) != 1)
+		if (write(file_to, buf, sizeof(buf)) != 1)
 		{
 			fail_99(av[2]);
 		}
@@ -67,15 +66,15 @@ void fail_99(char *s)
 
 /**
  * close_fd - function
- * @d: arg
+ * @fd: arg
  *
  * Return: nothing
  */
 void close_fd(int fd)
 {
-	if (close(fd) <= 0)
+	if (close(fd) < 0)
 	{
 		dprintf(1, "Can\'t close fd %d\n", fd);
-                exit(100);
+		exit(100);
 	}
 }
