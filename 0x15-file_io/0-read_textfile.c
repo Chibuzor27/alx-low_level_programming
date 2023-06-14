@@ -41,8 +41,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		{
 			if (sum < letters)
 			{
-				if (!write(0, (s + i), 1))
-					return (0);
+				write(0, (s + i), 1);
 				sum += 1;
 			}
 			i++;
