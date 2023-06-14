@@ -12,22 +12,20 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fd, s;
+	int fd, s, i;
 	size_t sum = 0;
-	int i = 0;
 	char *c = NULL;
 
 	if (letters <= 0 || filename == NULL)
-	{
 		return (0);
-	}
 
 	fd = open(filename, O_RDONLY);
+	if (fd == -1)
+		return (0);
+
 	c = malloc(sizeof(char) * letters);
 	if (c == NULL)
-	{
 		return (0);
-	}
 
 	while ((s = read(fd, c, sizeof(char) * letters)) > 0)
 	{
