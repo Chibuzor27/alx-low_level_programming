@@ -2,34 +2,31 @@
 #include "lists.h"
 
 /**
- * print_dlistint - function
- * @dlistint: arg
- * Return: int
+ * dlistint_len - function
+ * @h: arg
  *
+ * Return: size
  */
-size_t print_dlistint(const dlistint_t *h)
+size_t dlistint_len(const dlistint_t *h)
 {
+	const dlistint_t *node;
 	size_t size = 0;
-	dlistint_t node = NULL;
 
-	/*
 	if (h != NULL)
 	{
-		size = 1;
 		node = h;
 		while (node->prev != NULL)
 		{
-			node = h->prev;
+			node = node->prev;
 		}
 
-		printf("%d\n", node->n);
+		size = 1;
 		while (node->next != NULL)
 		{
 			size++;
-			node = h->next;
-			printf("%d\n", node->n);
+			node = node->next;
 		}
 	}
-	*/
+	node = NULL;
 	return (size);
 }
