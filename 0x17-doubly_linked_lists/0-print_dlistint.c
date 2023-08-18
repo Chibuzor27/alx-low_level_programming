@@ -18,14 +18,14 @@ size_t print_dlistint(const dlistint_t *h)
 		node = h;
 		while (node->prev != NULL)
 		{
-			node = h->prev;
+			node = node->prev;
 		}
 
 		printf("%d\n", node->n);
 		while (node->next != NULL)
 		{
 			size++;
-			node = h->next;
+			node = node->next;
 			printf("%d\n", node->n);
 		}
 	}

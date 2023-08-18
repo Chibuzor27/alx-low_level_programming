@@ -10,6 +10,7 @@
  */
 int main(void)
 {
+    dlistint_t *node;
     dlistint_t *head;
 
     head = NULL;
@@ -20,7 +21,8 @@ int main(void)
     add_dnodeint(&head, 4);
     add_dnodeint(&head, 98);
     add_dnodeint(&head, 402);
-    add_dnodeint(&head, 1024);
+    node = add_dnodeint(&head, 1024);
+    printf("node value is %d\n", node->n);
     print_dlistint(head);
     return (EXIT_SUCCESS);
 }
