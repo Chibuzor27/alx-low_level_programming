@@ -18,23 +18,24 @@ void hash_table_delete(hash_table_t *ht)
 			if (ht->array[i] != NULL)
 			{
 				free(ht->array[i]->key);
-				free(ht->array[i]->value);
+				if (ht->array[i]->value != NULL)
+					free(ht->array[i]->value);
 
 				if (ht->array[i]->next != NULL)
 				{
-					if (ht->array[i]->next != NULL)
+					current = ht->array[i]->next;
+					next = current->next;
+					while (next != NULL)
 					{
-						current = ht->array[i]->next;
+						current = next;
 						next = current->next;
-						while (next != NULL)
-						{
-							current = next;
-							next = current->next;
-							free(current);
-						}
+						free(current->key);
+						if (current->value != NULL)
+							free(current->value);
+						free(current);
 					}
-					free(ht->array[i]->next);
 				}
+				free(ht->array[i]->next);
 				current = NULL;
 				next = NULL;
 			}

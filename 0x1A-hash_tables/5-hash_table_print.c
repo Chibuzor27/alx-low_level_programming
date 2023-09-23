@@ -17,9 +17,19 @@ void hash_table_print(const hash_table_t *ht)
 		{
 			if (ht->array[i] != NULL)
 			{
-				if (count > 0)
-					printf(", ");
-				printf("'%s': '%s'", ht->array[i]->key, ht->array[i]->value);
+				if (ht->array[i]->key != NULL)
+				{
+					if (count > 0)
+						printf(", ");
+					if (ht->array[i]->value != NULL)
+					{
+						printf("'%s': '%s'", ht->array[i]->key, ht->array[i]->value);
+					}
+					else
+					{
+						printf("'%s': null", ht->array[i]->key);
+					}
+				}
 				count++;
 			}
 		}
