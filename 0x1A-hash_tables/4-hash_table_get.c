@@ -2,7 +2,7 @@
 #include <stddef.h>
 
 /**
- * hast_table_get - function
+ * hash_table_get - function
  * @ht: the hash table
  * @key: the key
  * Return: the value
@@ -20,4 +20,4 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 		return (NULL);
 	}
 	return (ht->array[index]->value);
-}	
+}
